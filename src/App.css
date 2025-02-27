@@ -1,0 +1,77 @@
+body {
+  font-family: "Poppins", sans-serif;
+  background: linear-gradient(135deg, #4a148c, #6a1b9a, #8e24aa);
+  color:black;
+  text-align: center;
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.app-container {
+  width: 100%;
+  max-width: 450px;
+  padding: 30px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 15px;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.wallet-container, .transaction-container {
+  margin: 20px auto;
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.wallet-button, .send-button, .copy-button {
+  background: linear-gradient(135deg, #6200ea, #7b1fa2);
+  color: #000000;
+  border: none;
+  padding: 12px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 6px;
+  transition: all 0.3s ease;
+  margin-top: 10px;
+}
+
+.wallet-button:hover, .send-button:hover, .copy-button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+}
+
+.copy-button {
+  font-size: 14px;
+  padding: 8px 12px;
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.input-field {
+  width: 90%;
+  padding: 12px;
+  margin: 10px 0;
+  border: none;
+  border-radius: 6px;
+  background: rgba(255, 255, 255, 0.2);
+  color:#000000;
+  outline: none;
+  font-size: 16px;
+}
+
+.input-field::placeholder {
+  color: rgba(0, 0, 0, 0.7); 
+}
+
+.tx-hash {
+  font-size: 14px;
+  word-wrap: break-word;
+  color: #d4d4d4;
+}
