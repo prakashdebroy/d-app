@@ -8,7 +8,7 @@ function App() {
 
   return (
     <div className="app-container">
-      <h1>Web3 DApp</h1>
+      <h1>META-Fi</h1>
       <WalletConnect setAccount={setAccount} />
       {account && <SendTransaction account={account} />}
     </div>
