@@ -5,6 +5,7 @@ const SendTransaction = ({ account }) => {
   const [toAddress, setToAddress] = useState("");
   const [amount, setAmount] = useState("");
   const [txHash, setTxHash] = useState("");
+  const [isHashVisible, setIsHashVisible] = useState(false); // State to control visibility
 
   const sendTransaction = async () => {
     if (!window.ethereum) {
@@ -32,12 +33,24 @@ const SendTransaction = ({ account }) => {
       });
 
       setTxHash(tx.hash);
+      setIsHashVisible(false); // Keep the hash hidden initially
       console.log("Transaction sent:", tx);
       alert(`Transaction sent! Hash: ${tx.hash}`);
     } catch (error) {
       console.error("Transaction error:", error);
       alert("Transaction failed!");
     }
+  };
+
+  const copyToClipboard = () => {
+    if (txHash) {
+      navigator.clipboard.writeText(txHash);
+      alert("Transaction Hash copied to clipboard!");
+    }
+  };
+
+  const handleShowHash = () => {
+    setIsHashVisible(true); // Show the hash when the button is clicked
   };
 
   return (
@@ -57,8 +70,24 @@ const SendTransaction = ({ account }) => {
         className="input-field"
         min="0"
       />
-      <button onClick={sendTransaction} className="send-button">Send ETH</button>
-      {txHash && <p className="tx-hash">Transaction Hash: {txHash}</p>}
+      <button onClick={sendTransaction} className="send-button">
+        Send ETH
+      </button>
+
+      {txHash && !isHashVisible && (
+        <button className="copy-button" onClick={handleShowHash}>
+          Show Transaction Hash
+        </button>
+      )}
+
+      {isHashVisible && txHash && (
+        <div className="tx-hash-container">
+          <p className="tx-hash">{txHash}</p>
+          <button className="copy-button" onClick={copyToClipboard}>
+            Copy Hash
+          </button>
+        </div>
+      )}
     </div>
   );
 };
