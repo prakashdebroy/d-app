@@ -32,6 +32,9 @@ Follow the steps below to run this project locally:
 3. **Install dependencies:**:
    ```bash
    npm install 
+   truffle init
+   npm create vite@latest my-vite-app --template react
+    
 4. **Deploy Contracts:**:
    ```bash
    truffle migrate --network sepolia 
